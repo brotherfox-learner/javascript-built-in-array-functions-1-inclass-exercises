@@ -28,8 +28,8 @@
 // };
 
 // Refactor (Implicit)
-// const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => 
-//   employeeInfo.reduce((acc, cur) => 
+// const addBonusForSelectedDepartment = (employeeInfo, bonus, department) =>
+//   employeeInfo.reduce((acc, cur) =>
 //     cur.department === department ? acc + cur.salary + bonus : acc
 //   , 0);
 
@@ -41,12 +41,22 @@
 // }
 
 //Filter + Map + Reduce
+// const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
+//   let employeeInDepartment = employeeInfo.filter(
+//     (employee) => employee.department === department
+//   );
+//   let bonuseAdded = employeeInDepartment.map((e) => e.salary + bonus);
+//   let totalSalary = bonuseAdded.reduce((acc, cur) => acc + cur, 0);
+//   return totalSalary;
+// };
+
+//Filter + Map + Reduce : Chaining
 const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
-  let employeeInDepartment = employeeInfo.filter((employee)=>employee.department === department)
-  let bonuseAdded = employeeInDepartment.map((e)=>e.salary+bonus)
-  let totalSalary = bonuseAdded.reduce((acc,cur)=>acc+cur,0)
-  return totalSalary
-}
+  return employeeInfo
+    .filter((employee) => employee.department === department)
+    .map((e) => e.salary + bonus)
+    .reduce((acc, cur) => acc + cur, 0);
+};
 
 const employeeInfo = [
   {

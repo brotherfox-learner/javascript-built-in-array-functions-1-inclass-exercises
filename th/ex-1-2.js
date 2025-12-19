@@ -7,7 +7,17 @@
 */
 
 // Start coding here
-
+// const sumNegativeNumbers = (numArray) => {
+//   return numArray.reduce((acc, cur) => {
+//     if (cur < 0) {
+//       acc += cur;
+//     }
+//     return acc;
+//   }, 0);
+// };
+//Refactor
+const sumNegativeNumbers = (numArray) => numArray.reduce((acc, cur) => cur < 0 ? acc += cur : acc,0);
+  
 const numbers1 = [3, -5, 10, 12, -7, 0, 8, 2];
 console.log(sumNegativeNumbers(numbers1)); // -12
 

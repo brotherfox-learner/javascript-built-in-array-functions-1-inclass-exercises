@@ -7,6 +7,13 @@
 */
 
 // Start coding here
+// const exponentialNumber = (array) => {
+//   return array.map((e) => {
+//     return e * e;
+//   });
+// };
+//Refactor
+const exponentialNumber = (numArray) => numArray.map((e)=>e*e)
 
 const numbers1 = [3, 5, 10, 12];
 console.log(exponentialNumber(numbers1)); // [ 9, 25, 100, 144 ]

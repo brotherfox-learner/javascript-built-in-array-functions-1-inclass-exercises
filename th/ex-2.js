@@ -9,6 +9,28 @@
 */
 
 // Start coding here
+// const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
+//   return employeeInfo.reduce((acc, cur) => {
+//     if (cur.department === department) {
+//       acc = acc + cur.salary + bonus;
+//     }
+//     return acc;
+//   }, 0);
+// };
+
+//Shorten code
+const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
+  return employeeInfo.reduce((acc, cur) => {
+    acc = cur.department === department ? acc + cur.salary + bonus : acc;
+    return acc;
+  }, 0);
+};
+
+// //Refactor
+// const addBonusForSelectedDepartment2 = (employeeInfo, bonus, department) => 
+//   employeeInfo.reduce((acc, cur) => 
+//     cur.department === department ? acc + cur.salary + bonus : acc
+//   , 0);
 
 const employeeInfo = [
   {

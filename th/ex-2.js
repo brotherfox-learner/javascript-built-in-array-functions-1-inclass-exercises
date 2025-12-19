@@ -9,6 +9,7 @@
 */
 
 // Start coding here
+// // Reduce only
 // const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
 //   return employeeInfo.reduce((acc, cur) => {
 //     if (cur.department === department) {
@@ -18,19 +19,34 @@
 //   }, 0);
 // };
 
-//Shorten code
-const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
-  return employeeInfo.reduce((acc, cur) => {
-    acc = cur.department === department ? acc + cur.salary + bonus : acc;
-    return acc;
-  }, 0);
-};
+// Reduce only (Ternary Operator)
+// const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
+//   return employeeInfo.reduce((acc, cur) => {
+//     acc = cur.department === department ? acc + cur.salary + bonus : acc;
+//     return acc;
+//   }, 0);
+// };
 
-// //Refactor
-// const addBonusForSelectedDepartment2 = (employeeInfo, bonus, department) => 
+// Refactor (Implicit)
+// const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => 
 //   employeeInfo.reduce((acc, cur) => 
 //     cur.department === department ? acc + cur.salary + bonus : acc
 //   , 0);
+
+// //Filter + Reduce
+// const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
+//   let employeeInDepartment = employeeInfo.filter((employee)=>employee.department === department)
+//   let totalSalary = employeeInDepartment.reduce((acc,cur)=>acc+cur.salary+bonus,0)
+//   return totalSalary
+// }
+
+//Filter + Map + Reduce
+const addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
+  let employeeInDepartment = employeeInfo.filter((employee)=>employee.department === department)
+  let bonuseAdded = employeeInDepartment.map((e)=>e.salary+bonus)
+  let totalSalary = bonuseAdded.reduce((acc,cur)=>acc+cur,0)
+  return totalSalary
+}
 
 const employeeInfo = [
   {
